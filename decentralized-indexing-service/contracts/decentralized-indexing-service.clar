@@ -10,3 +10,10 @@
 (define-constant ERR_INVALID_QUERY (err u108))
 (define-constant ERR_INSUFFICIENT_REPUTATION (err u109))
 (define-constant ERR_DATA_VERIFICATION_FAILED (err u110))
+
+;; Constants
+(define-constant MIN_STAKE_AMOUNT u5000)
+(define-constant MAX_REPUTATION_SCORE u10000)
+(define-constant REPUTATION_DECAY_RATE u10)
+(define-constant CHALLENGE_PERIOD u144) ;; Approximately 1 day
+(define-constant QUERY_FEE_BASE u100)
