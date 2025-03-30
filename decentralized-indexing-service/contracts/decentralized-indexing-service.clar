@@ -259,3 +259,13 @@
     commission-rate: uint
   }
 )
+
+(define-map NodeDelegationInfo
+  { node-address: principal }
+  {
+    total-delegated: uint,
+    delegator-count: uint,
+    commission-rate: uint,
+    accepting-delegations: bool
+  }
+)
