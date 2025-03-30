@@ -370,3 +370,38 @@
 (define-data-var current-reward-period uint u0)
 (define-data-var total-delegated-stake uint u0)
 (define-data-var total-rewards-distributed uint u0)
+
+;; Update node delegation settings
+(define-public (update-delegation-settings
+  (commission-rate uint)
+  (accepting-delegations bool)
+)
+  (let (
+    (node tx-sender)
+    (node-info (unwrap! (map-get? IndexingNodes { node-address: node }) ERR_INVALID_NODE))
+    (delegation-info (default-to 
+                      {
+                        total-delegated: u0,
+                        delegator-count: u0,
+                        commission-rate: u50,
+                        accepting-delegations: true
+                      }
+                      (map-get? NodeDelegationInfo { node-address: node })))
+  )
+    ;; Verify commission rate (max 30%)
+    (asserts! (<= commission-rate u300) ERR_UNAUTHORIZED)
+    
+    ;; Update node delegation info
+    (map-set NodeDelegationInfo
+      { node-address: node }
+      {
+        total-delegated: (get total-delegated delegation-info),
+        delegator-count: (get delegator-count delegation-info),
+        commission-rate: commission-rate,
+        accepting-delegations: accepting-delegations
+      }
+    )
+    
+    (ok true)
+  )
+)
