@@ -405,3 +405,33 @@
     (ok true)
   )
 )
+
+;; Start a new reward period
+(define-public (start-reward-period
+  (total-rewards uint)
+)
+  (let (
+    (current-period (var-get current-reward-period))
+    (admin tx-sender)
+  )
+    ;; Only admin can call this (simplified for demonstration)
+    ;; Transfer rewards to contract
+    (try! (stx-transfer? total-rewards admin (as-contract tx-sender)))
+    
+    ;; Create new reward period
+    (map-set RewardPeriods
+      { period-id: (+ current-period u1) }
+      {
+        start-block: stacks-block-height,
+        end-block: (+ stacks-block-height REWARD_CLAIM_PERIOD),
+        total-rewards: total-rewards,
+        distributed: false
+      }
+    )
+    
+    ;; Update current period
+    (var-set current-reward-period (+ current-period u1))
+    
+    (ok (+ current-period u1))
+  )
+)
