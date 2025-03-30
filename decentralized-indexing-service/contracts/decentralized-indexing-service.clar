@@ -475,3 +475,40 @@
     (ok (get amount reward-info))
   )
 )
+
+;; Create a new governance proposal
+(define-public (create-proposal
+  (description-hash (string-ascii 64))
+  (parameter-key (string-ascii 32))
+  (proposed-value uint)
+)
+  (let (
+    (proposer tx-sender)
+    (current-id (var-get current-proposal-id))
+    (node-info (unwrap! (map-get? IndexingNodes { node-address: proposer }) ERR_INVALID_NODE))
+  )
+    ;; Verify proposer has sufficient reputation
+    (asserts! (>= (get reputation-score node-info) u5000) ERR_INSUFFICIENT_REPUTATION)
+    
+    ;; Create proposal
+    (map-set Proposals
+      { proposal-id: (+ current-id u1) }
+      {
+        proposer: proposer,
+        description-hash: description-hash,
+        parameter-key: parameter-key,
+        proposed-value: proposed-value,
+        start-block: stacks-block-height,
+        end-block: (+ stacks-block-height PROPOSAL_VOTING_PERIOD),
+        votes-for: u0,
+        votes-against: u0,
+        executed: false
+      }
+    )
+    
+    ;; Update proposal counter
+    (var-set current-proposal-id (+ current-id u1))
+    
+    (ok (+ current-id u1))
+  )
+)
