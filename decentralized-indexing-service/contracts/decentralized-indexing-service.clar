@@ -671,3 +671,13 @@
     (ok true)
   )
 )
+
+;; Get delegation info
+(define-read-only (get-delegation-info (delegator principal) (node principal))
+  (map-get? StakeDelegations { delegator: delegator, node: node })
+)
+
+;; Get node delegation stats
+(define-read-only (get-node-delegation-stats (node principal))
+  (map-get? NodeDelegationInfo { node-address: node })
+)
