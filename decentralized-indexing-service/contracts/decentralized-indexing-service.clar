@@ -245,3 +245,17 @@
 (define-constant MIN_VOTES_FOR_PROPOSAL u100)
 (define-constant DATA_FEED_EXPIRY_PERIOD u1440) ;; 10 days
 (define-constant SUBNET_CREATION_FEE u50000)
+
+
+(define-map StakeDelegations
+  {
+    delegator: principal,
+    node: principal
+  }
+  {
+    amount: uint,
+    start-block: uint,
+    last-reward-block: uint,
+    commission-rate: uint
+  }
+)
