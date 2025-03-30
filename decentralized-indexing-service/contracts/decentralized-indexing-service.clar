@@ -269,3 +269,13 @@
     accepting-delegations: bool
   }
 )
+
+(define-map RewardPeriods
+  { period-id: uint }
+  {
+    start-block: uint,
+    end-block: uint,
+    total-rewards: uint,
+    distributed: bool
+  }
+)
