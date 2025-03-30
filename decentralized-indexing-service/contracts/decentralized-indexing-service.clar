@@ -74,3 +74,9 @@
   { value: uint }
 )
 
+;; Global State Variables
+(define-data-var total-nodes uint u0)
+(define-data-var total-staked-amount uint u0)
+(define-data-var total-queries-processed uint u0)
+(define-data-var total-data-indexed uint u0)
+
