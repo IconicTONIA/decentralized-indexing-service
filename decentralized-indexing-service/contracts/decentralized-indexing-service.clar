@@ -341,3 +341,15 @@
     total-paid: uint
   }
 )
+
+(define-map Subnets
+  { subnet-id: (string-ascii 32) }
+  {
+    creator: principal,
+    creation-block: uint,
+    node-count: uint,
+    min-stake-requirement: uint,
+    specialized: bool,
+    topic-hash: (string-ascii 64)
+  }
+)
