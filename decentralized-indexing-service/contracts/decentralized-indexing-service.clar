@@ -224,3 +224,17 @@
 (define-read-only (get-network-parameter (param-key (string-ascii 32)))
   (map-get? NetworkParameters { param-key: param-key })
 )
+
+
+;; Error Codes for new features
+(define-constant ERR_DELEGATION_LIMIT_REACHED (err u111))
+(define-constant ERR_INVALID_DELEGATION (err u112))
+(define-constant ERR_REWARD_CLAIM_FAILED (err u113))
+(define-constant ERR_INVALID_REWARD_PERIOD (err u114))
+(define-constant ERR_ALREADY_VOTED (err u115))
+(define-constant ERR_PROPOSAL_EXPIRED (err u116))
+(define-constant ERR_PROPOSAL_NOT_ACTIVE (err u117))
+(define-constant ERR_INVALID_DATA_FEED (err u118))
+(define-constant ERR_FEED_EXISTS (err u119))
+(define-constant ERR_INSUFFICIENT_PERMISSIONS (err u120))
+
