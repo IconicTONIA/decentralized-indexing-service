@@ -316,3 +316,16 @@
     for: bool
   }
 )
+
+(define-map DataFeeds
+  { feed-id: (string-ascii 32) }
+  {
+    creator: principal,
+    feed-type: uint,
+    access-fee: uint,
+    metadata-hash: (string-ascii 64),
+    creation-block: uint,
+    expiry-block: uint,
+    subscribers: uint
+  }
+)
