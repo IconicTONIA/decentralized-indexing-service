@@ -17,3 +17,24 @@
 (define-constant REPUTATION_DECAY_RATE u10)
 (define-constant CHALLENGE_PERIOD u144) ;; Approximately 1 day
 (define-constant QUERY_FEE_BASE u100)
+
+;; Node Types
+(define-constant NODE_TYPE_FULL u0)
+(define-constant NODE_TYPE_LIGHT u1)
+(define-constant NODE_TYPE_ARCHIVE u2)
+
+;; Structs for advanced tracking
+(define-map IndexingNodes 
+  { node-address: principal }
+  {
+    total-stake: uint,
+    reputation-score: uint,
+    node-type: uint,
+    active: bool,
+    last-validation-timestamp: uint,
+    total-queries-served: uint,
+    successful-queries: uint,
+    failed-queries: uint,
+    total-data-indexed: uint
+  }
+)
