@@ -1,30 +1,12 @@
-
-;; title: decentralized-indexing-service
-;; version:
-;; summary:
-;; description:
-
-;; traits
-;;
-
-;; token definitions
-;;
-
-;; constants
-;;
-
-;; data vars
-;;
-
-;; data maps
-;;
-
-;; public functions
-;;
-
-;; read only functions
-;;
-
-;; private functions
-;;
-
+;; Error Codes
+(define-constant ERR_UNAUTHORIZED (err u100))
+(define-constant ERR_INVALID_NODE (err u101))
+(define-constant ERR_NODE_EXISTS (err u102))
+(define-constant ERR_INSUFFICIENT_STAKE (err u103))
+(define-constant ERR_INVALID_STAKE_AMOUNT (err u104))
+(define-constant ERR_WITHDRAWAL_FAILED (err u105))
+(define-constant ERR_CHALLENGE_EXISTS (err u106))
+(define-constant ERR_INVALID_CHALLENGE (err u107))
+(define-constant ERR_INVALID_QUERY (err u108))
+(define-constant ERR_INSUFFICIENT_REPUTATION (err u109))
+(define-constant ERR_DATA_VERIFICATION_FAILED (err u110))
