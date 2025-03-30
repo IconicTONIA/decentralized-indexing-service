@@ -681,3 +681,13 @@
 (define-read-only (get-node-delegation-stats (node principal))
   (map-get? NodeDelegationInfo { node-address: node })
 )
+
+;; Get proposal details
+(define-read-only (get-proposal (proposal-id uint))
+  (map-get? Proposals { proposal-id: proposal-id })
+)
+
+;; Get data feed details
+(define-read-only (get-data-feed (feed-id (string-ascii 32)))
+  (map-get? DataFeeds { feed-id: feed-id })
+)
