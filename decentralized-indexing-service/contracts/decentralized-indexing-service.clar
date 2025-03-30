@@ -691,3 +691,18 @@
 (define-read-only (get-data-feed (feed-id (string-ascii 32)))
   (map-get? DataFeeds { feed-id: feed-id })
 )
+
+;; Get subnet details
+(define-read-only (get-subnet (subnet-id (string-ascii 32)))
+  (map-get? Subnets { subnet-id: subnet-id })
+)
+
+;; Check if node is member of subnet
+(define-read-only (is-subnet-member (subnet-id (string-ascii 32)) (node principal))
+  (is-some (map-get? SubnetMembership { subnet-id: subnet-id, node: node }))
+)
+
+;; Get reward period details
+(define-read-only (get-reward-period (period-id uint))
+  (map-get? RewardPeriods { period-id: period-id })
+)
