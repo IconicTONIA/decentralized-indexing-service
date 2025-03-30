@@ -305,3 +305,14 @@
     executed: bool
   }
 )
+
+(define-map ProposalVotes
+  {
+    proposal-id: uint,
+    voter: principal
+  }
+  {
+    vote-amount: uint,
+    for: bool
+  }
+)
