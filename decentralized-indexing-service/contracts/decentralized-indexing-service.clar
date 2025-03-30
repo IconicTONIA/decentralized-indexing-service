@@ -329,3 +329,15 @@
     subscribers: uint
   }
 )
+
+(define-map FeedSubscriptions
+  {
+    subscriber: principal,
+    feed-id: (string-ascii 32)
+  }
+  {
+    start-block: uint,
+    subscription-period: uint,
+    total-paid: uint
+  }
+)
