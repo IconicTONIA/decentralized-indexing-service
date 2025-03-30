@@ -54,3 +54,16 @@
   }
 )
 
+;; Query Tracking
+(define-map QueryTracking
+  { 
+    query-id: (string-ascii 64),
+    node: principal 
+  }
+  {
+    timestamp: uint,
+    query-type: uint,
+    data-hash: (string-ascii 64),
+    verified: bool
+  }
+)
