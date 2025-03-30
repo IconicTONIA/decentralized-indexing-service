@@ -364,3 +364,9 @@
     stake-committed: uint
   }
 )
+
+;; Global state variables for new features
+(define-data-var current-proposal-id uint u0)
+(define-data-var current-reward-period uint u0)
+(define-data-var total-delegated-stake uint u0)
+(define-data-var total-rewards-distributed uint u0)
