@@ -67,3 +67,10 @@
     verified: bool
   }
 )
+
+;; Governance Parameters
+(define-map NetworkParameters
+  { param-key: (string-ascii 32) }
+  { value: uint }
+)
+
