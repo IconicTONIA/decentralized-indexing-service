@@ -279,3 +279,14 @@
     distributed: bool
   }
 )
+
+(define-map NodeRewards
+  {
+    node: principal,
+    period-id: uint
+  }
+  {
+    amount: uint,
+    claimed: bool
+  }
+)
