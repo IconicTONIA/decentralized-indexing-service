@@ -38,3 +38,19 @@
     total-data-indexed: uint
   }
 )
+
+;; Challenges and Dispute Resolution
+(define-map NodeChallenges
+  { 
+    challenger: principal, 
+    challenged-node: principal,
+    challenge-block: uint
+  }
+  {
+    challenge-stake: uint,
+    resolved: bool,
+    challenge-type: uint,
+    evidence-hash: (string-ascii 64)
+  }
+)
+
