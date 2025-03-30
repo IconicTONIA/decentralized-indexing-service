@@ -353,3 +353,14 @@
     topic-hash: (string-ascii 64)
   }
 )
+
+(define-map SubnetMembership
+  {
+    subnet-id: (string-ascii 32),
+    node: principal
+  }
+  {
+    join-block: uint,
+    stake-committed: uint
+  }
+)
