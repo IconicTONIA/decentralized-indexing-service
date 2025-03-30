@@ -238,3 +238,10 @@
 (define-constant ERR_FEED_EXISTS (err u119))
 (define-constant ERR_INSUFFICIENT_PERMISSIONS (err u120))
 
+;; Constants for new features
+(define-constant MAX_DELEGATIONS_PER_NODE u10)
+(define-constant REWARD_CLAIM_PERIOD u720) ;; Approximately 5 days
+(define-constant PROPOSAL_VOTING_PERIOD u4320) ;; Approximately 30 days
+(define-constant MIN_VOTES_FOR_PROPOSAL u100)
+(define-constant DATA_FEED_EXPIRY_PERIOD u1440) ;; 10 days
+(define-constant SUBNET_CREATION_FEE u50000)
